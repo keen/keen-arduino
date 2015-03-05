@@ -1,7 +1,9 @@
 from fabric.context_managers import cd
-from fabric.operations import run, put
+from fabric.operations import env, local, put, run
 
 def upload_ca():
+    # use sh instead of bash
+    env.shell = '/bin/sh -c'
     # make sure /etc/ssl/certs exists
     run('mkdir -p /etc/ssl/certs')
     # install the root ca
