@@ -1,5 +1,8 @@
 KeenClient	KEYWORD1
+setApiVersion	KEYWORD2
 setProjectId	KEYWORD2
 setWriteKey	KEYWORD2
 setReadKey	KEYWORD2
 setMasterKey	KEYWORD2
+addEvent	KEYWORD2
+addEvents	KEYWORD2
