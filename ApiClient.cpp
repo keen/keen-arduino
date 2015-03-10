@@ -4,28 +4,34 @@
 
 #include "ApiClient.h"
 
-ApiClient::ApiClient() {
+:ApiClient::ApiClient()
+{
 	request_buffer.reserve(BUFF_SIZE);
 }
 
-unsigned int ApiClient::request() {
+unsigned int ApiClient::request()
+{
 	return 0;
 	//return runShellCommand(request_buffer);
 }
 
-unsigned int ApiClient::get(const __FlashStringHelper *url) {
+unsigned int ApiClient::get(const __FlashStringHelper *url)
+{
 	return request();
 }
 
-unsigned int ApiClient::get(const String &url) {
+unsigned int ApiClient::get(const String &url)
+{
 	return request();
 }
 
-unsigned int ApiClient::get(const char *url) {
+unsigned int ApiClient::get(const char *url)
+{
 	return request();
 }
 
-unsigned int ApiClient::post(const __FlashStringHelper *url, const __FlashStringHelper *data) {
+unsigned int ApiClient::post(const __FlashStringHelper *url, const __FlashStringHelper *data)
+{
 	request_buffer = F("curl -X POST ");
 	request_buffer += F("-H \"Authorization: ");
 	addAuthorizationHeader();
@@ -40,7 +46,8 @@ unsigned int ApiClient::post(const __FlashStringHelper *url, const __FlashString
 	return request();
 }
 
-unsigned int ApiClient::post(const String &url, const String &data) {
+unsigned int ApiClient::post(const String &url, const String &data)
+{
 	request_buffer = F("curl -X POST ");
 	request_buffer += F("-H \"Authorization: ");
 	addAuthorizationHeader();
@@ -55,7 +62,8 @@ unsigned int ApiClient::post(const String &url, const String &data) {
 	return request();
 }
 
-unsigned int ApiClient::post(const char *url, const char *data) {
+unsigned int ApiClient::post(const char *url, const char *data)
+{
 	request_buffer = F("curl -X POST ");
 	request_buffer += F("-H \"Authorization: ");
 	addAuthorizationHeader();
@@ -70,26 +78,31 @@ unsigned int ApiClient::post(const char *url, const char *data) {
 	return request();
 }
 
-void ApiClient::setAuthorizationHeader(StringPointer auth_header) {
+void ApiClient::setAuthorizationHeader(StringPointer auth_header)
+{
 	this->auth_header = auth_header;
 }
 
-void ApiClient::setAuthorizationHeader(const __FlashStringHelper *auth_header) {
+void ApiClient::setAuthorizationHeader(const __FlashStringHelper *auth_header)
+{
 	this->auth_header.u.flashstring_ptr = auth_header;
 	this->auth_header.type = POINTER_UNION_TYPE_FLASHSTRING;
 }
 
-void ApiClient::setAuthorizationHeader(const String *auth_header) {
+void ApiClient::setAuthorizationHeader(const String *auth_header)
+{
 	this->auth_header.u.string_ptr = auth_header;
 	this->auth_header.type = POINTER_UNION_TYPE_STRING;
 }
 
-void ApiClient::setAuthorizationHeader(const char *auth_header) {
+void ApiClient::setAuthorizationHeader(const char *auth_header)
+{
 	this->auth_header.u.char_ptr = auth_header;
 	this->auth_header.type = POINTER_UNION_TYPE_CHAR;
 }
 
-void ApiClient::getAuthorizationHeader() {
+void ApiClient::getAuthorizationHeader()
+{
 	switch(auth_header.type) {
 		case POINTER_UNION_TYPE_FLASHSTRING:
 			Serial.println(auth_header.u.flashstring_ptr);
@@ -105,7 +118,8 @@ void ApiClient::getAuthorizationHeader() {
 	}
 }
 
-void ApiClient::addAuthorizationHeader() {
+void ApiClient::addAuthorizationHeader()
+{
 	switch(auth_header.type) {
 		case POINTER_UNION_TYPE_FLASHSTRING:
 			request_buffer += auth_header.u.flashstring_ptr;
@@ -121,22 +135,26 @@ void ApiClient::addAuthorizationHeader() {
 	}
 }
 
-void ApiClient::setContentTypeHeader(const __FlashStringHelper *contenttype_header) {
+void ApiClient::setContentTypeHeader(const __FlashStringHelper *contenttype_header)
+{
 	this->contenttype_header.u.flashstring_ptr = contenttype_header;
 	this->contenttype_header.type = POINTER_UNION_TYPE_FLASHSTRING;
 }
 
-void ApiClient::setContentTypeHeader(const String *contenttype_header) {
+void ApiClient::setContentTypeHeader(const String *contenttype_header)
+{
 	this->contenttype_header.u.string_ptr = contenttype_header;
 	this->contenttype_header.type = POINTER_UNION_TYPE_STRING;
 }
 
-void ApiClient::setContentTypeHeader(const char *contenttype_header) {
+void ApiClient::setContentTypeHeader(const char *contenttype_header)
+{
 	this->contenttype_header.u.char_ptr = contenttype_header;
 	this->contenttype_header.type = POINTER_UNION_TYPE_CHAR;
 }
 
-void ApiClient::getContentTypeHeader() {
+void ApiClient::getContentTypeHeader()
+{
 	switch(contenttype_header.type) {
 		case POINTER_UNION_TYPE_FLASHSTRING:
 			Serial.println(contenttype_header.u.flashstring_ptr);
@@ -152,7 +170,8 @@ void ApiClient::getContentTypeHeader() {
 	}
 }
 
-void ApiClient::addContentTypeHeader() {
+void ApiClient::addContentTypeHeader()
+{
 	switch(contenttype_header.type) {
 		case POINTER_UNION_TYPE_FLASHSTRING:
 			request_buffer += contenttype_header.u.flashstring_ptr;
@@ -168,22 +187,26 @@ void ApiClient::addContentTypeHeader() {
 	}
 }
 
-void ApiClient::setUserAgentHeader(const __FlashStringHelper *useragent_header) {
+void ApiClient::setUserAgentHeader(const __FlashStringHelper *useragent_header)
+{
 	this->useragent_header.u.flashstring_ptr = useragent_header;
 	this->useragent_header.type = POINTER_UNION_TYPE_FLASHSTRING;
 }
 
-void ApiClient::setUserAgentHeader(const String *useragent_header) {
+void ApiClient::setUserAgentHeader(const String *useragent_header)
+{
 	this->useragent_header.u.string_ptr = useragent_header;
 	this->useragent_header.type = POINTER_UNION_TYPE_STRING;
 }
 
-void ApiClient::setUserAgentHeader(const char *useragent_header) {
+void ApiClient::setUserAgentHeader(const char *useragent_header)
+{
 	this->useragent_header.u.char_ptr = useragent_header;
 	this->useragent_header.type = POINTER_UNION_TYPE_CHAR;
 }
 
-void ApiClient::getUserAgentHeader() {
+void ApiClient::getUserAgentHeader()
+{
 	switch(useragent_header.type) {
 		case POINTER_UNION_TYPE_FLASHSTRING:
 			Serial.println(useragent_header.u.flashstring_ptr);
@@ -199,7 +222,8 @@ void ApiClient::getUserAgentHeader() {
 	}
 }
 
-void ApiClient::addUserAgentHeader() {
+void ApiClient::addUserAgentHeader()
+{
 	switch(useragent_header.type) {
 		case POINTER_UNION_TYPE_FLASHSTRING:
 			request_buffer += useragent_header.u.flashstring_ptr;
@@ -215,7 +239,8 @@ void ApiClient::addUserAgentHeader() {
 	}
 }
 
-void ApiClient::printRequest() {
+void ApiClient::printRequest()
+{
 	Serial.println(request_buffer);
 }
 

@@ -40,14 +40,14 @@ public:
 	void setAuthorizationHeader(const char *auth_header);
 	void getAuthorizationHeader();
 	
-	void  setContentTypeHeader(const __FlashStringHelper *contenttype_header);
-	void  setContentTypeHeader(const String *contenttype_header);
-	void  setContentTypeHeader(const char *contenttype_header);
+	void setContentTypeHeader(const __FlashStringHelper *contenttype_header);
+	void setContentTypeHeader(const String *contenttype_header);
+	void setContentTypeHeader(const char *contenttype_header);
 	void getContentTypeHeader();
 	
-	void  setUserAgentHeader(const __FlashStringHelper *useragent_header);
-	void  setUserAgentHeader(const String *useragent_header);
-	void  setUserAgentHeader(const char *useragent_header);
+	void setUserAgentHeader(const __FlashStringHelper *useragent_header);
+	void setUserAgentHeader(const String *useragent_header);
+	void setUserAgentHeader(const char *useragent_header);
 	void getUserAgentHeader();
 	
 	void printRequest();

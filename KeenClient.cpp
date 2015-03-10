@@ -4,7 +4,8 @@
 
 #include "KeenClient.h"
 
-KeenClient::KeenClient() {
+KeenClient::KeenClient()
+{
 	setApiVersion(F("3.0"));
 	setContentTypeHeader(F("application/json"));
 	setUserAgentHeader(F("Arduino/0.1a"));

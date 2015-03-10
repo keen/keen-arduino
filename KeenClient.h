@@ -12,11 +12,11 @@ public:
 	KeenClient();
 	
 	unsigned int addEvent(const __FlashStringHelper *event_collection,
-		      const __FlashStringHelper *event_body);
+			      const __FlashStringHelper *event_body);
 	unsigned int addEvent(const String &event_collection,
-		      const String &event_body);
+			      const String &event_body);
 	unsigned int addEvent(const char *event_collection,
-		      const char *event_body);
+			      const char *event_body);
 
 	unsigned int addEvents(const __FlashStringHelper *events);
 	unsigned int addEvents(const String &events);
