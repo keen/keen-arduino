@@ -24,6 +24,22 @@ test(setAuthorizationHeader)
   client.setAuthorizationHeader(auth_header_char);
   assertEqual(client.auth_header.type, POINTER_UNION_TYPE_CHAR);
   assertEqual(client.auth_header.u.char_ptr, auth_header_char);
+ 
+  StringPointer auth_header;
+  auth_header.type = POINTER_UNION_TYPE_FLASHSTRING;
+  auth_header.u.flashstring_ptr = auth_header_flashstring;
+  client.setAuthorizationHeader(auth_header);
+  assertEqual(client.auth_header.u.flashstring_ptr, auth_header_flashstring);
+  
+  auth_header.type = POINTER_UNION_TYPE_STRING;
+  auth_header.u.string_ptr = &auth_header_string;
+  client.setAuthorizationHeader(auth_header);
+  assertEqual(*client.auth_header.u.string_ptr, auth_header_string);
+  
+  auth_header.type = POINTER_UNION_TYPE_CHAR;
+  auth_header.u.char_ptr = auth_header_char;
+  client.setAuthorizationHeader(auth_header);
+  assertEqual(client.auth_header.u.char_ptr, auth_header_char);
   
 }
 
@@ -89,6 +105,7 @@ test(post)
   retval = client.post(url_char, data_char);
   assertEqual(client.request_buffer, request);
   assertEqual(retval, 0);
+
 }
 
 test(get)
