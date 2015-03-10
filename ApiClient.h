@@ -34,6 +34,7 @@ public:
 	unsigned int post(const char *url, const char *data);
 
 
+	void setAuthorizationHeader(StringPointer auth_header);
 	void setAuthorizationHeader(const __FlashStringHelper *auth_header);
 	void setAuthorizationHeader(const String *auth_header);
 	void setAuthorizationHeader(const char *auth_header);

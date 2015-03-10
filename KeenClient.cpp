@@ -6,39 +6,88 @@
 
 KeenClient::KeenClient() {
 	setApiVersion(F("3.0"));
+	setContentTypeHeader(F("application/json"));
+	setUserAgentHeader(F("Arduino/0.1a"));
+	resource.reserve(URI_SIZE);
 }
 
-void KeenClient::addEvent(const __FlashStringHelper *event_collection,
+void KeenClient::buildResource()
+{
+	resource = F("https://api.keen.io/");
+	addApiVersion();
+	resource += F("/projects/");
+	addProjectId();
+	resource += F("/events/");
+}
+
+void KeenClient::buildResource(const __FlashStringHelper *event_collection)
+{
+	buildResource();
+	resource += event_collection;
+
+}
+
+void KeenClient::buildResource(const String &event_collection)
+{
+	buildResource();
+	resource += event_collection;
+
+}
+
+void KeenClient::buildResource(const char *event_collection)
+{
+	buildResource();
+	resource += event_collection;
+}
+
+void KeenClient::getResource()
+{
+	Serial.println(resource);
+}
+
+unsigned int KeenClient::addEvent(const __FlashStringHelper *event_collection,
 		     const __FlashStringHelper *event_body)
 {
-	
+	buildResource(event_collection);
+	setAuthorizationHeader(write_key);
+	return post(resource, event_body);
 }
 
-void KeenClient::addEvent(const String *event_collection,
-		     const String *event_body)
+unsigned int KeenClient::addEvent(const String &event_collection,
+		     const String &event_body)
 {
-
+	buildResource(event_collection);
+	setAuthorizationHeader(write_key);
+	return post(resource, event_body);
 }
 
-void KeenClient::addEvent(const char *event_collection,
+unsigned int KeenClient::addEvent(const char *event_collection,
 		     const char *event_body)
 {
-
+	buildResource(event_collection);
+	setAuthorizationHeader(write_key);
+	return post(resource, event_body);
 }
 
-void KeenClient::addEvents(const __FlashStringHelper *events)
+unsigned int KeenClient::addEvents(const __FlashStringHelper *events)
 {
-
+	buildResource();
+	setAuthorizationHeader(write_key);
+	return post(resource, events);
 }
 
-void KeenClient::addEvents(const String *events)
+unsigned int KeenClient::addEvents(const String &events)
 {
-
+	buildResource();
+	setAuthorizationHeader(write_key);
+	return post(resource, events);
 }
 
-void KeenClient::addEvents(const char *events)
+unsigned int KeenClient::addEvents(const char *events)
 {
-
+	buildResource();
+	setAuthorizationHeader(write_key);
+	return post(resource, events);
 }
 
 void KeenClient::setApiVersion(const __FlashStringHelper *api_version)
@@ -76,6 +125,23 @@ void KeenClient::getApiVersion()
 	}
 }
 
+void KeenClient::addApiVersion()
+{
+	switch(api_version.type) {
+		case POINTER_UNION_TYPE_FLASHSTRING:
+			resource += api_version.u.flashstring_ptr;
+			break;
+		case POINTER_UNION_TYPE_STRING:
+			resource += *api_version.u.string_ptr;
+			break;
+		case POINTER_UNION_TYPE_CHAR:
+			resource += api_version.u.char_ptr;
+			break;
+		default:
+			break;
+	}
+}
+
 void KeenClient::setProjectId(const __FlashStringHelper *project_id)
 {
 	this->project_id.u.flashstring_ptr = project_id;
@@ -105,6 +171,23 @@ void KeenClient::getProjectId()
 			break;
 		case POINTER_UNION_TYPE_CHAR:
 			Serial.println(project_id.u.char_ptr);
+			break;
+		default:
+			break;
+	}
+}
+
+void KeenClient::addProjectId()
+{
+	switch(project_id.type) {
+		case POINTER_UNION_TYPE_FLASHSTRING:
+			resource += project_id.u.flashstring_ptr;
+			break;
+		case POINTER_UNION_TYPE_STRING:
+			resource += *project_id.u.string_ptr;
+			break;
+		case POINTER_UNION_TYPE_CHAR:
+			resource += project_id.u.char_ptr;
 			break;
 		default:
 			break;

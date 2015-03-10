@@ -69,23 +69,24 @@ unsigned int ApiClient::post(const char *url, const char *data) {
 	request_buffer += url;
 	return request();
 }
- 
+
+void ApiClient::setAuthorizationHeader(StringPointer auth_header) {
+	this->auth_header = auth_header;
+}
+
 void ApiClient::setAuthorizationHeader(const __FlashStringHelper *auth_header) {
 	this->auth_header.u.flashstring_ptr = auth_header;
 	this->auth_header.type = POINTER_UNION_TYPE_FLASHSTRING;
-	return *this;
 }
 
 void ApiClient::setAuthorizationHeader(const String *auth_header) {
 	this->auth_header.u.string_ptr = auth_header;
 	this->auth_header.type = POINTER_UNION_TYPE_STRING;
-	return *this;
 }
 
 void ApiClient::setAuthorizationHeader(const char *auth_header) {
 	this->auth_header.u.char_ptr = auth_header;
 	this->auth_header.type = POINTER_UNION_TYPE_CHAR;
-	return *this;
 }
 
 void ApiClient::getAuthorizationHeader() {
