@@ -11,8 +11,7 @@ ApiClient::ApiClient()
 
 unsigned int ApiClient::request()
 {
-	return 0;
-	//return runShellCommand(request_buffer);
+	return runShellCommand(request_buffer);
 }
 
 unsigned int ApiClient::get(const __FlashStringHelper *url)
