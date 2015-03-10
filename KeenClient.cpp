@@ -17,12 +17,13 @@ void KeenClient::buildResource()
 	addApiVersion();
 	resource += F("/projects/");
 	addProjectId();
-	resource += F("/events/");
+	resource += F("/events");
 }
 
 void KeenClient::buildResource(const __FlashStringHelper *event_collection)
 {
 	buildResource();
+	resource += F("/");
 	resource += event_collection;
 
 }
@@ -30,6 +31,7 @@ void KeenClient::buildResource(const __FlashStringHelper *event_collection)
 void KeenClient::buildResource(const String &event_collection)
 {
 	buildResource();
+	resource += F("/");
 	resource += event_collection;
 
 }
@@ -37,6 +39,7 @@ void KeenClient::buildResource(const String &event_collection)
 void KeenClient::buildResource(const char *event_collection)
 {
 	buildResource();
+	resource += F("/");
 	resource += event_collection;
 }
 
