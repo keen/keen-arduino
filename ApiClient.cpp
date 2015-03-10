@@ -4,7 +4,7 @@
 
 #include "ApiClient.h"
 
-:ApiClient::ApiClient()
+ApiClient::ApiClient()
 {
 	request_buffer.reserve(BUFF_SIZE);
 }
