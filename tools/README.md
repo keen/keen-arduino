@@ -20,3 +20,13 @@ scp==0.9.0
 ```py
 pip install -r requirements.txt
 ```
+
+### Usage
+
+The upload tool uses fabric to run tasks on the Arduino Yun. To upload the certificate authority, specify a HOST\_IP\_ADDR, USERNAME, and PASSWORD.
+
+```sh
+fab -H HOST_IP_ADDR -u USERNAME -p PASSWORD upload_ca
+```
+
+The default username for the Arduino Yun is `root` and the default password is `arduino`.
