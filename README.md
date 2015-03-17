@@ -52,6 +52,10 @@ The ATmega32U4 microcontroller on the Arduino Yun has very little RAM. As such, 
 
 `KeenClient()`
 
+The Arduino Yun has very limited RAM. Additionally, there are few use cases for which all of the API keys are necessary. Because of this, the constructor does not take any API key parameters, but rather exposes setter methods to set them.
+
+The constructor does, however, set the default API version to `3.0`.
+
 ```cpp
 void setApiVersion(const __FlashStringHelper *api_version)
 void setApiVersion(const String *api_version)
