@@ -29,4 +29,4 @@ The upload tool uses fabric to run tasks on the Arduino Yun. To upload the certi
 fab -H HOST_IP_ADDR -u USERNAME -p PASSWORD upload_ca
 ```
 
-The default username for the Arduino Yun is `root` and the default password is `arduino`.
+The default username for the Arduino Yun is `root` and the default password is `arduino`. For more Fabric help and command line arguments, visit [http://docs.fabfile.org/en/latest/usage/fab.html](http://docs.fabfile.org/en/latest/usage/fab.html).
