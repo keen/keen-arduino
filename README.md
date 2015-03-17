@@ -82,6 +82,18 @@ void setMasterKey(const String *master_key)
 void setMasterKey(const char *master_key)
 ```
 
+```cpp
+unsigned int addEvent(const __FlashStringHelper *event_collection, const __FlashStringHelper *event_body)
+unsigned int addEvent(const String &event_collection, const String &event_body)
+unsigned int addEvent(const char *event_collection, const char *event_body)
+```
+
+```cpp
+unsigned int addEvents(const __FlashStringHelper *events)
+unsigned int addEvents(const String &events)
+unsigned int addEvents(const char *events)
+```
+
 ## Installation
 
 Copy or unzip the contents of `keen-arduino` to `~/sketchbook/libraries/KeenClient/` and restart the Arduino IDE. The examples directory provides a good starting point.
