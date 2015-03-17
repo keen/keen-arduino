@@ -2,7 +2,9 @@
 
 This library allows you to push events from the Arduino Yun to [https://keen.io](https://keen.io).
 
-## tl;dr
+## Examples
+
+Example usage of the `keen-arduino` library can be found in the `examples` directory.
 
 ```ino
 
