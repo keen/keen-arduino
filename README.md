@@ -52,25 +52,35 @@ The ATmega32U4 microcontroller on the Arduino Yun has very little RAM. As such, 
 
 `KeenClient()`
 
-`void setApiVersion(const __FlashStringHelper *api_version)`
-`void setApiVersion(const String *api_version)`
-`void setApiVersion(const char *api_version)`
+```cpp
+void setApiVersion(const __FlashStringHelper *api_version)
+void setApiVersion(const String *api_version)
+void setApiVersion(const char *api_version)
+```
 
-`void setProjectId(const __FlashStringHelper *project_id)`
-`void setProjectId(const String *project_id)`
-`void setProjectId(const char *project_id)`
+```cpp
+void setProjectId(const __FlashStringHelper *project_id)
+void setProjectId(const String *project_id)
+void setProjectId(const char *project_id)
+```
 
-`void setWriteKey(const __FlashStringHelper *write_key)`
-`void setWriteKey(const String *write_key)`
-`void setWriteKey(const char *write_key)`
+```cpp
+void setWriteKey(const __FlashStringHelper *write_key)
+void setWriteKey(const String *write_key)
+void setWriteKey(const char *write_key)
+```
 
-`void setReadKey(const __FlashStringHelper *read_key)`
-`void setReadKey(const String *read_key)`
-`void setReadKey(const char *read_key)`
+```cpp
+void setReadKey(const __FlashStringHelper *read_key)
+void setReadKey(const String *read_key)
+void setReadKey(const char *read_key)
+```
 
-`void setMasterKey(const __FlashStringHelper *master_key)`
-`void setMasterKey(const String *master_key)`
-`void setMasterKey(const char *master_key)`
+```cpp
+void setMasterKey(const __FlashStringHelper *master_key)
+void setMasterKey(const String *master_key)
+void setMasterKey(const char *master_key)
+```
 
 ## Installation
 
