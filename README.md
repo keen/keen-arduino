@@ -48,6 +48,30 @@ void loop() {
 
 ## Library Reference
 
+The ATmega32U4 microcontroller on the Arduino Yun has very little RAM. As such, the `KeenClient` API exposes methods that accept `char *`, `String *`, and `__FlashStringHelper *`. The inclusion of `__FlashStringHelper *` allows users to wrap their string literals in the [F() macro](http://playground.arduino.cc/Learning/Memory), which will in turn store the data in the more plentiful flash memory instead of RAM.
+
+`KeenClient()`
+
+`void setApiVersion(const __FlashStringHelper *api_version)`
+`void setApiVersion(const String *api_version)`
+`void setApiVersion(const char *api_version)`
+
+`void setProjectId(const __FlashStringHelper *project_id)`
+`void setProjectId(const String *project_id)`
+`void setProjectId(const char *project_id)`
+
+`void setWriteKey(const __FlashStringHelper *write_key)`
+`void setWriteKey(const String *write_key)`
+`void setWriteKey(const char *write_key)`
+
+`void setReadKey(const __FlashStringHelper *read_key)`
+`void setReadKey(const String *read_key)`
+`void setReadKey(const char *read_key)`
+
+`void setMasterKey(const __FlashStringHelper *master_key)`
+`void setMasterKey(const String *master_key)`
+`void setMasterKey(const char *master_key)`
+
 ## Installation
 
 Copy or unzip the contents of `keen-arduino` to `~/sketchbook/libraries/KeenClient/` and restart the Arduino IDE. The examples directory provides a good starting point.
