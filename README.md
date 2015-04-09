@@ -102,6 +102,10 @@ unsigned int addEvents(const char *events)
 
 Copy or unzip the contents of `keen-arduino` to `~/sketchbook/libraries/KeenClient/` and restart the Arduino IDE. The examples directory provides a good starting point.
 
+### Upload Certificate Authority
+
+In order to verify the identity of the remote host, [https://api.keen.io](https://api.keen.io)'s root certificate authority must be uploaded to the AR9331 on board the Arduino Yun. Instructions for uploading the root certificate authority can be found [here](https://bitbucket.org/kinsolresearch/keen-arduino/src/HEAD/tools/README.md?at=master).
+
 ## Supported Hardware
 
 The `keen-arduino` library supports the Arduino Yun, as [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) is required to use [https://keen.io](https://keen.io)'s API.
