@@ -22,7 +22,7 @@ void loop() {
   keen.setProjectId(F("YOUR_PROJECT_ID"));
   keen.setWriteKey(F("YOUR_WRITE_KEY"));
   
-  keen.addEvent("YOUR_EVENT_COLLECTION", "YOUR_JSON_DATA");
+  keen.addEvent("motion_detections", "{\"cat\": 1}");
   
   keen.printRequest();
   
