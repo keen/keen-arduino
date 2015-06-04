@@ -104,7 +104,7 @@ Copy or unzip the contents of `keen-arduino` to `~/sketchbook/libraries/KeenClie
 
 ### Upload Certificate Authority
 
-In order to verify the identity of the remote host, [https://api.keen.io](https://api.keen.io)'s root certificate authority must be uploaded to the AR9331 on board the Arduino Yun. Instructions for uploading the root certificate authority can be found [here](https://bitbucket.org/kinsolresearch/keen-arduino/src/HEAD/tools/README.md?at=master).
+In order to verify the identity of the remote host, [https://api.keen.io](https://api.keen.io)'s root certificate authority must be uploaded to the AR9331 on board the Arduino Yun. Instructions for uploading the root certificate authority can be found [here](https://github.com/keen/keen-arduino/tree/master/tools).
 
 ## Supported Hardware
 
