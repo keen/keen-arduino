@@ -80,6 +80,7 @@ h3 {
   background-repeat: repeat-x;
   color: #fff;
   margin: 0 0 24px;
+  opacity: 0.85;
   padding: 20px 0;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
@@ -164,12 +165,6 @@ pre code {
 }
 
 .example-message {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
 }
 
 .example-message .glyphicon {
