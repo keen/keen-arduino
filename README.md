@@ -2,6 +2,9 @@
 
 This library allows you to push events from the Arduino Yun to [https://keen.io](https://keen.io).
 
+### Community-Supported SDK
+This is an _unofficial_ community supported SDK. If you find any issues or have a request please post an [issue](https://github.com/keen/keen-arduino/issues).
+
 ## Examples
 
 Example usage of the `keen-arduino` library can be found in the `examples` directory.
@@ -30,11 +33,11 @@ void loop() {
   keen.setApiVersion(F("3.0"));
   keen.setProjectId(F("YOUR_PROJECT_ID"));
   keen.setWriteKey(F("YOUR_WRITE_KEY"));
-  
+
   keen.addEvent("motion_detections", "{\"cat\": 1}");
-  
+
   keen.printRequest();
-  
+
   while (keen.available()) {
     char c = keen.read();
     Serial.print(c);
